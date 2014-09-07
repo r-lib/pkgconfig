@@ -1,8 +1,12 @@
 Package: pkgconfig
-Title: What the package does (one line)
-Version: 0.1
-Authors@R: "First Last <first.last@example.com> [aut, cre]"
-Description: What the package does (one paragraph)
-Depends: R (>= 3.1.1)
-License: What license is it under?
+Title: Persistent configuration for R packages
+Version: 0.0.0
+Authors@R: "Gabor Csardi <csardi.gabor@gmail.com> [aut, cre]"
+Description: Persistent conifguration for R packages. It supports
+    site, user and project-level configuration, through configuration
+    files and environment variables.
+License: MIT + file LICENSE
 LazyData: true
+Imports:
+    rappdirs,
+    magrittr
