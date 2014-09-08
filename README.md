@@ -1,6 +1,10 @@
 
 # Persistent configuration for R packages
 
+[![Linux Build Status](https://travis-ci.org/gaborcsardi/pkgconfig.png?branch=master)](https://travis-ci.org/gaborcsardi/pkgconfig)
+[![Windows Build status](https://ci.appveyor.com/api/projects/status/astjq5qlxvaw5u3v)](https://ci.appveyor.com/project/gaborcsardi/pkgconfig)
+
+
 Easy way to create configuration parameters in your R package. The user can
 then configure your package via site, user or project level configuration
 files.
