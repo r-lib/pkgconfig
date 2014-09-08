@@ -9,4 +9,4 @@ License: MIT + file LICENSE
 LazyData: true
 Imports:
     rappdirs,
-    magrittr
+    yaml
