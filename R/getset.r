@@ -6,9 +6,16 @@
 #' This is the order in which the parameter is searched for: \enumerate{
 #'   \item The configuration of the current session.
 #'   \item The project configuration file in the current working
-#'      directory.
-#'   \item The user's configuration file.
-#'   \item The site-wide configuration file.
+#'      directory. For project \sQuote{foo} this is called
+#'      \code{.foo.yml}.
+#'   \item The user's configuration file. The place of this is determined
+#'      using \code{user_config_dir()} from the \code{rappdirs} package.
+#'   \item The site-wide configuration file. The place of this is
+#'      determined using \code{site_config_dir()} from the \code{rappdirs}
+#'      package.
+#'   \item The default configuration that is stored in the
+#'      \code{_pkgconfig_defaults} variable within the package.
+#'      (It is not necessary to export this variable from the package.)
 #' }
 #'
 #' @param key The name of the parameter to query.
