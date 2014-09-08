@@ -1,6 +1,6 @@
 Package: pkgconfig
 Title: Persistent configuration for R packages
-Version: 0.0.0
+Version: 1.0.0
 Authors@R: "Gabor Csardi <csardi.gabor@gmail.com> [aut, cre]"
 Description: Persistent conifguration for R packages. It supports
     site, user and project-level configuration, through configuration
@@ -12,3 +12,5 @@ Imports:
     yaml
 Suggests:
     testthat
+URL: https://github.com/gaborcsardi/pkgconfig
+BugReports: https://github.com/gaborcsardi/pkgconfig/issues
