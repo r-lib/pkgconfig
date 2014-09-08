@@ -43,8 +43,10 @@ get_from_files <- function(key) {
 #' @importFrom yaml yaml.load_file
 
 get_from_file <- function(key, file) {
-  config <- yaml.load_file(file)
-  if (key %in% names(config)) { return(list(config[[key]])) }
+  if (file.exists(file)) {
+    config <- yaml.load_file(file)
+    if (key %in% names(config)) { return(list(config[[key]])) }
+  }
   NULL
 }
 
@@ -128,10 +130,21 @@ set_config_site <- function(...) {
 #' @importFrom yaml yaml.load_file as.yaml
 
 set_config_in_file <- function(file, conf_list) {
-  config <- yaml.load_file(file)
+
+  if (file.exists(file)) {
+    config <- yaml.load_file(file)
+  } else {
+    config <- list()
+  }
+
   config <- modifyList(config, conf_list, keep.null = TRUE)
+
+  if (!file.exists(dirname(file))) {
+    dir.create(dirname(file), recursive = TRUE, showWarnings = FALSE)
+  }
   tmp <- tempfile()
   cat(as.yaml(config), file = tmp)
   file.rename(tmp, file)
+
   invisible()
 }
