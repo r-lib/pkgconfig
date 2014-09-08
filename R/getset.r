@@ -114,7 +114,7 @@ set_config_session <- function(...) {
   }
   l <- list(...)
   for (n in names(l)) { who_session[[n]] <- l[[n]] }
-  assign(who, envir = session)
+  assign(who, who_session, envir = session)
   invisible()
 }
 
