@@ -35,7 +35,8 @@ get_from_session <- function(key) {
 
 get_from_files <- function(key) {
   for (f in config_route()) {
-    (val <- get_from_file(key, file = f)) %&&% return(list(val))
+    val <- get_from_file(key, file = f)
+    if (!is.null(val)) return(val)
   }
   NULL
 }
