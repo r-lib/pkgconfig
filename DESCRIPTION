@@ -10,3 +10,4 @@ LazyData: true
 Imports:
     rappdirs,
     yaml
+Suggests: testthat
