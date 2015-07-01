@@ -6,9 +6,9 @@
 [![](http://www.r-pkg.org/badges/version/pkgconfig)](http://cran.rstudio.com/web/packages/pkgconfig/index.html)
 
 
-Easy way to create configuration parameters in your R package. The user can
-then configure your package via site, user or project level configuration
-files.
+Easy way to create configuration parameters in your R package. Configuration
+values of the same key are independent for different packages.
+
 
 ## Installation
 
@@ -20,9 +20,8 @@ devtools::install_github("gaborcsardi/pkgconfig")
 
 ## Usage
 
-Call `get_config()` to query the value of a configuration parameter.
-`set_config()` sets configuration parameters, and potentially writes
-them to files.
+Call `get_config()` to query the value of a configuration parameter,
+`set_config()` to set them.
 
 Create an object called `_pkgconfig_defaults` for the default values
 of you configuration parameters.

@@ -7,10 +7,8 @@ Description: Persistent conifguration for R packages. It supports
     files and environment variables.
 License: MIT + file LICENSE
 LazyData: true
-Imports:
-    rappdirs,
-    yaml
 Suggests:
-    testthat
+    testthat,
+    disposables
 URL: https://github.com/gaborcsardi/pkgconfig
 BugReports: https://github.com/gaborcsardi/pkgconfig/issues

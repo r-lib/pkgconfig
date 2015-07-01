@@ -14,19 +14,6 @@ whoami <- function() {
   res
 }
 
-#' @importFrom rappdirs user_config_dir site_config_dir
-
-config_route <- function() {
-  who <- whoami()
-  appname <- file.path("R-pkgconfig", who)
-  local <- file.path(getwd(),  paste0(".", who, ".yml"))
-  dirs <- c(user_config_dir(appname),
-            site_config_dir(appname))
-  structure(c(local,
-              file.path(dirs, "default.yml")),
-            .Names = c("project", "user", "site"))
-}
-
 pkg_ns <- function() {
   asNamespace(whoami())
 }
