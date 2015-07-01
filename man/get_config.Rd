@@ -2,30 +2,21 @@
 % Please edit documentation in R/getset.R
 \name{get_config}
 \alias{get_config}
-\title{Query a configuration parameter}
+\title{Query a configuration parameter key}
 \usage{
-get_config(key)
+get_config(key, fallback = NULL)
 }
 \arguments{
 \item{key}{The name of the parameter to query.}
+
+\item{fallback}{Fallback if the parameter id not found anywhere.}
 }
 \value{
-The value of the parameter
+The value of the parameter, or the fallback value if not found.
 }
 \description{
-This is the order in which the parameter is searched for: \enumerate{
-  \item The configuration of the current session.
-  \item The project configuration file in the current working
-     directory. For project \sQuote{foo} this is called
-     \code{.foo.yml}.
-  \item The user's configuration file. The place of this is determined
-     using \code{user_config_dir()} from the \code{rappdirs} package.
-  \item The site-wide configuration file. The place of this is
-     determined using \code{site_config_dir()} from the \code{rappdirs}
-     package.
-  \item The default configuration that is stored in the
-     \code{_pkgconfig_defaults} variable within the package.
-     (It is not necessary to export this variable from the package.)
-}
+First the current session is searched, if the key is not found,
+its default value is used, or the fallback value, if it does not
+have a default.
 }
 

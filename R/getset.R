@@ -1,32 +1,22 @@
 
 ## ----------------------------------------------------------------------
 
-#' Query a configuration parameter
+#' Query a configuration parameter key
 #'
-#' This is the order in which the parameter is searched for: \enumerate{
-#'   \item The configuration of the current session.
-#'   \item The project configuration file in the current working
-#'      directory. For project \sQuote{foo} this is called
-#'      \code{.foo.yml}.
-#'   \item The user's configuration file. The place of this is determined
-#'      using \code{user_config_dir()} from the \code{rappdirs} package.
-#'   \item The site-wide configuration file. The place of this is
-#'      determined using \code{site_config_dir()} from the \code{rappdirs}
-#'      package.
-#'   \item The default configuration that is stored in the
-#'      \code{_pkgconfig_defaults} variable within the package.
-#'      (It is not necessary to export this variable from the package.)
-#' }
+#' First the current session is searched, if the key is not found,
+#' its default value is used, or the fallback value, if it does not
+#' have a default.
 #'
 #' @param key The name of the parameter to query.
-#' @return The value of the parameter
+#' @param fallback Fallback if the parameter id not found anywhere.
+#' @return The value of the parameter, or the fallback value if not found.
 #'
 #' @export
 
-get_config <- function(key) {
+get_config <- function(key, fallback = NULL) {
   result <- get_from_session(key) %||%
     get_from_default(key)
-  result[[1]]
+  if (is.null(result)) fallback else result[[1]]
 }
 
 get_from_session <- function(key) {
