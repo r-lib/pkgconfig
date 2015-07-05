@@ -1,0 +1,74 @@
+
+context("Session")
+
+test_that("Session variables", {
+
+  on.exit(try(disposables::dispose_packages(pkgs)))
+  pkgs <- disposables::make_packages(
+    pkgconfigtest = {
+      f <- function() {
+        set_config(foo = "bar")
+        get_config("foo")
+      }
+      g <- function() { get_config("foo") }
+      h <- function() { get_config("foobar") }
+    }
+  )
+
+  expect_equal(f(), "bar")
+  expect_equal(g(), "bar")
+  expect_null(h())
+
+})
+
+context("Keys are private")
+
+test_that("Two packages do not interfere", {
+
+  on.exit(try(disposables::dispose_packages(pkgs)))
+
+  pkgs <- disposables::make_packages(
+
+    pkgA = {
+      setter <- function() { pkgconfig::set_config(key = "A") }
+      getter <- function() { utility::getter() }
+    },
+
+    pkgB = {
+      setter <- function() { pkgconfig::set_config(key = "B") }
+      getter <- function() { utility::getter() }
+    },
+
+    utility = {
+      getter <- function() { pkgconfig::get_config("key") }
+    }
+  )
+
+  pkgA::setter()
+  pkgB::setter()
+
+  expect_equal(pkgA::getter(), "A")
+  expect_equal(pkgB::getter(), "B")
+
+})
+
+test_that("Cannot get if set by another package", {
+
+  on.exit(try(disposables::dispose_packages(pkgs1)))
+  on.exit(try(disposables::dispose_packages(pkgs2)))
+  pkgs1 <- disposables::make_packages(
+    pkgconfigtest1 = {
+      getter <- function() { get_config("foo") }
+      getter_parent <- function() { getter() }
+    }
+  )
+
+  pkgs2 <- disposables::make_packages(
+    pkgconfigtest2 = {
+      setter <- function() { set_config(foo = "bar") }
+    }
+  )
+
+  pkgconfigtest2::setter()
+  expect_null(pkgconfigtest1::getter_parent())
+})

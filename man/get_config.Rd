@@ -15,8 +15,6 @@ get_config(key, fallback = NULL)
 The value of the parameter, or the fallback value if not found.
 }
 \description{
-First the current session is searched, if the key is not found,
-its default value is used, or the fallback value, if it does not
-have a default.
+Query a configuration parameter key
 }
 
