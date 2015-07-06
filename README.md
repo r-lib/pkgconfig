@@ -6,7 +6,7 @@
 [![](http://www.r-pkg.org/badges/version/pkgconfig)](http://cran.rstudio.com/web/packages/pkgconfig/index.html)
 
 Easy way to create configuration parameters in your R package. Configuration
-values set in different packages, are independent.
+values set in different packages are independent.
 
 Call `set_config()` to set a configuration parameter.
 Call `get_config()` to query it.
@@ -73,17 +73,22 @@ will supply a fallback value for the cases when it is not set:
 ```r
 return_vs_es_default <- TRUE
 # ...
-pkgconfig::get_config("igraph::return.vs.es", return_vs_es_default)
+igraph_func <- function() {
+    # ...
+    pkgconfig::get_config("igraph::return.vs.es", return_vs_es_default)
+	# ...
+}
 ```
 
-If the `get_config` function is called from `pkgA`, it will return
-`TRUE`, and if it is called from `pkgB`, it will return `FALSE`.
-For all other packages the `igraph::return.vs.es` option is not
-set, and the default value is used, as specified in `igraph`.
+If `igraph_func` is called from `pkgA` (maybe through other packages),
+`get_config` will return `TRUE`, and if it is called from `pkgB`,
+`get_config` will return `FALSE`. For all other packages the
+`igraph::return.vs.es` option is not set, and the default value is used,
+as specified in `igraph`.
 
 ## What if `pkgA` calls `pkgB`?
 
-It might happen that both `pkgA` and `pkgB` sets an option, and
+It might happen that both `pkgA` and `pkgB` set an option, and
 `pkgA` also calls functions from `pkgB`, which in turn, might call
 `igraph`. In this case the package that is further down the call
 stack wins. In other words, if the call sequence looks like this:
@@ -92,8 +97,8 @@ stack wins. In other words, if the call sequence looks like this:
 ... -> pkgA -> ... -> pkgB -> ... -> igraph
 ```
 
-then `pkgB`'s value is used in `igraph`. (Assuming `...` does not contain
-a call to `pkgA` of course.)
+then `pkgB`'s value is used in `igraph`. (Assuming the last  `...` does
+not contain a call to `pkgA` of course.)
 
 ## Feedback
 
