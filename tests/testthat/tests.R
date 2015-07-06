@@ -72,3 +72,34 @@ test_that("Cannot get if set by another package", {
   pkgconfigtest2::setter()
   expect_null(pkgconfigtest1::getter_parent())
 })
+
+test_that("Setting from .onLoad works fine", {
+
+  on.exit(try(disposables::dispose_packages(pkgs)))
+
+  pkgs <- disposables::make_packages(
+
+    pkgA = {
+      .onLoad <- function(lib, pkg) { pkgconfig::set_config(key = "A") }
+      getter <- function() { utility::getter() }
+    },
+
+    pkgB = {
+      .onLoad <- function(lib, pkg) { pkgconfig::set_config(key = "B") }
+      getter <- function() { utility::getter() }
+    },
+
+    pkgC = {
+      getter <- function() { utility::getter() }
+    },
+
+    utility = {
+      getter <- function() { pkgconfig::get_config("key", "fallback") }
+    }
+  )
+
+  expect_equal(pkgA::getter(), "A")
+  expect_equal(pkgB::getter(), "B")
+  expect_equal(pkgC::getter(), "fallback")
+
+})

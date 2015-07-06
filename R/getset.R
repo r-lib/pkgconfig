@@ -32,7 +32,7 @@ get_from_session <- function(key) {
     if (p %in% names(value)) return(value[[p]])
   }
 
-  list(NULL)
+  NULL
 }
 
 ## ----------------------------------------------------------------------
