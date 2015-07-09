@@ -54,16 +54,13 @@ test_that("Two packages do not interfere", {
 
 test_that("Cannot get if set by another package", {
 
-  on.exit(try(disposables::dispose_packages(pkgs1)))
-  on.exit(try(disposables::dispose_packages(pkgs2)))
-  pkgs1 <- disposables::make_packages(
+  on.exit(try(disposables::dispose_packages(pkgs)))
+
+  pkgs <- disposables::make_packages(
     pkgconfigtest1 = {
       getter <- function() { get_config("foo") }
       getter_parent <- function() { getter() }
-    }
-  )
-
-  pkgs2 <- disposables::make_packages(
+    },
     pkgconfigtest2 = {
       setter <- function() { set_config(foo = "bar") }
     }
@@ -79,6 +76,10 @@ test_that("Setting from .onLoad works fine", {
 
   pkgs <- disposables::make_packages(
 
+    utility = {
+      getter <- function() { pkgconfig::get_config("key", "fallback") }
+    },
+
     pkgA = {
       .onLoad <- function(lib, pkg) { pkgconfig::set_config(key = "A") }
       getter <- function() { utility::getter() }
@@ -91,11 +92,8 @@ test_that("Setting from .onLoad works fine", {
 
     pkgC = {
       getter <- function() { utility::getter() }
-    },
-
-    utility = {
-      getter <- function() { pkgconfig::get_config("key", "fallback") }
     }
+
   )
 
   expect_equal(pkgA::getter(), "A")
