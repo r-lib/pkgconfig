@@ -43,6 +43,7 @@ get_from_session <- function(key) {
 #' @return Nothing.
 #'
 #' @export
+#' @importFrom utils packageName
 
 set_config <- function(...) {
   check_named_args(...)

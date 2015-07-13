@@ -7,6 +7,8 @@ Description: Set configuration options on a per-package basis.
     other packages are unaffected.
 License: MIT + file LICENSE
 LazyData: true
+Imports:
+    utils
 Suggests:
     testthat,
     disposables
