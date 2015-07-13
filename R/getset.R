@@ -35,7 +35,7 @@ get_config <- function(key, fallback = NULL) {
 
 get_from_session <- function(key) {
   value <- config[[key]]
-  if (is.null(value)) return(list(NULL))
+  if (is.null(value)) return(NULL)
 
   pkgs <- sys.frames()
   pkgs <- lapply(pkgs, parent.env)
