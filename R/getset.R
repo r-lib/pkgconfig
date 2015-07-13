@@ -66,12 +66,10 @@ get_from_session <- function(key) {
 #' @return Nothing.
 #'
 #' @export
-#' @importFrom utils packageName
+#' @seealso \code{\link{set_config_in}}
 
 set_config <- function(...) {
-  check_named_args(...)
-  who <- packageName(env = parent.frame()) %||% "R_GlobalEnv"
-  set_config_session(who = who, ...)
+  set_config_in(..., .in = parent.frame())
 }
 
 check_named_args <- function(...) {
@@ -79,6 +77,32 @@ check_named_args <- function(...) {
   if (is.null(nn) || any(nn == "")) {
     stop("Some parameters are not named")
   }
+}
+
+#' Set a configuration parameter for a package
+#'
+#' This is a more flexible variant of \code{link{set_config}},
+#' and it allows creating an custom API in the package that
+#' uses \code{pkgconfig} for its configuration.
+#'
+#' @details
+#' This function is identical to \code{\link{set_config}}, but it allows
+#' supplying the environment that is used as the package the configuration
+#' is set for. This makes it possible to create an API for setting
+#' (and getting) configuration parameters.
+#'
+#' @param ... Parameters to set, they should be all named.
+#' @param .in An environment, typically belonging to a package.
+#' @return Nothing.
+#'
+#' @export
+#' @seealso \code{\link{set_config}}
+#' @importFrom utils packageName
+
+set_config_in <- function(..., .in = parent.frame()) {
+  check_named_args(...)
+  who <- packageName(env = .in) %||% "R_GlobalEnv"
+  set_config_session(who = who, ...)
 }
 
 set_config_session <- function(who, ...) {

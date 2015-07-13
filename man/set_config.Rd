@@ -17,4 +17,7 @@ Set a configuration parameter, for the package we are calling from.
 If called from the R prompt and not from a package, then it sets
 the parameter for global environment.
 }
+\seealso{
+\code{\link{set_config_in}}
+}
 
