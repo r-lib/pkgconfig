@@ -1,6 +1,6 @@
 Package: pkgconfig
 Title: Private Configuration for 'R' Packages
-Version: 1.0.0
+Version: 2.0.0
 Author: Gabor Csardi
 Maintainer: Gabor Csardi <csardi.gabor@gmail.com>
 Description: Set configuration options on a per-package basis.
