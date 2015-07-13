@@ -105,3 +105,7 @@ not contain a call to `pkgA` of course.)
 Please comment in the
 [Github issue tracker](https://github.com/gaborcsardi/pkgconfig/issues)
 of the project.
+
+## License
+
+MIT © [Gábor Csárdi](http://gaborcsardi.org)
