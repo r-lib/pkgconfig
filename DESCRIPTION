@@ -1,5 +1,5 @@
 Package: pkgconfig
-Title: Private Configuration For R Packages
+Title: Private Configuration For 'R' Packages
 Version: 1.0.0
 Authors@R: "Gabor Csardi <csardi.gabor@gmail.com> [aut, cre]"
 Description: Set configuration options on a per-package basis.
