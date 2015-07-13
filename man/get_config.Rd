@@ -15,6 +15,19 @@ get_config(key, fallback = NULL)
 The value of the parameter, or the fallback value if not found.
 }
 \description{
-Query a configuration parameter key
+Query a configuration parameter key, and return the value
+set in the calling package(s).
+}
+\details{
+This function is meant to be called from the package whose
+behavior depends on it. It searches for the given configuration
+key, and if it exists, it checks which package(s) it was called
+from and returns the configuration setting for that package.
+
+If the key is not set in any calling package, but it is set in
+the global environment (i.e. at the R prompt), then it returns that
+setting.
+
+If the key is not set anywhere, then it returns \code{NULL}.
 }
 
