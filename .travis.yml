@@ -28,3 +28,5 @@ env:
     - RVERSION=oldrel
     - RVERSION=release
     - RVERSION=devel
+  global:
+    - NOT_CRAN=1
