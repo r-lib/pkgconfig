@@ -44,11 +44,11 @@ get_from_session <- function(key) {
   pkgs <- unique(pkgs)
 
   for (p in rev(pkgs)) {
-    if (p %in% names(value)) return(value[[p]])
+    if (p %in% names(value)) return(value[p])
   }
 
   if ("R_GlobalEnv" %in% names(value)) {
-    return(value[["R_GlobalEnv"]])
+    return(value["R_GlobalEnv"])
   }
 
   NULL
