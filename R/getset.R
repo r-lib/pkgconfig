@@ -32,6 +32,10 @@ get_from_session <- function(key) {
     if (p %in% names(value)) return(value[[p]])
   }
 
+  if ("R_GlobalEnv" %in% names(value)) {
+    return(value[["R_GlobalEnv"]])
+  }
+
   NULL
 }
 
@@ -47,7 +51,8 @@ get_from_session <- function(key) {
 
 set_config <- function(...) {
   check_named_args(...)
-  set_config_session(who = packageName(env = parent.frame()), ...)
+  who <- packageName(env = parent.frame()) %||% "R_GlobalEnv"
+  set_config_session(who = who, ...)
 }
 
 check_named_args <- function(...) {
