@@ -93,7 +93,11 @@ test_that("Cannot get if set by another package", {
 
 test_that("Setting from .onLoad works fine", {
 
-  on.exit(try(disposables::dispose_packages(pkgs)))
+  on.exit(try(disposables::dispose_packages(pkgs)), add = TRUE)
+
+  rtests <- Sys.getenv("R_TESTS")
+  on.exit(Sys.setenv(R_TESTS = rtests), add = TRUE)
+  Sys.setenv(R_TESTS = "")
 
   pkgs <- disposables::make_packages(
 
