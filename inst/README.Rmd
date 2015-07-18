@@ -62,7 +62,7 @@ the `return.vs.es` option from it's `.onLoad` function:
 
 ```r
 .onLoad <- function(lib, pkg) {
-    pkgconfig::set_config("igraph:return.vs.es" = TRUE)
+    pkgconfig::set_config("igraph:return.vs.es" = FALSE)
 }
 ```
 
