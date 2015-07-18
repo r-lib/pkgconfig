@@ -3,7 +3,8 @@
 
 [![Linux Build Status](https://travis-ci.org/gaborcsardi/pkgconfig.svg?branch=master)](https://travis-ci.org/gaborcsardi/pkgconfig)
 [![Windows Build status](https://ci.appveyor.com/api/projects/status/github/gaborcsardi/pkgconfig?svg=true)](https://ci.appveyor.com/project/gaborcsardi/pkgconfig)
-[![](http://www.r-pkg.org/badges/version/pkgconfig)](http://cran.rstudio.com/web/packages/pkgconfig/index.html)
+[![](http://www.r-pkg.org/badges/version/pkgconfig)](http://www.r-pkg.org/pkg/pkgconfig)
+[![](http://cranlogs.r-pkg.org/badges/pkgconfig)](http://www.r-pkg.org/pkg/pkgconfig)
 
 Easy way to create configuration parameters in your R package. Configuration
 values set in different packages are independent.
