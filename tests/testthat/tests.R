@@ -95,11 +95,10 @@ test_that("Setting from .onLoad works fine", {
 
   on.exit(try(disposables::dispose_packages(pkgs)), add = TRUE)
 
-  rtests <- Sys.getenv("R_TESTS")
-  on.exit(Sys.setenv(R_TESTS = rtests), add = TRUE)
-  Sys.setenv(R_TESTS = "")
-
   pkgs <- disposables::make_packages(
+
+    lib_dir = .libPaths()[1],
+    quiet = FALSE,
 
     utility = {
       getter <- function() { pkgconfig::get_config("key", "fallback") }
