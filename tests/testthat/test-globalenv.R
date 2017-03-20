@@ -3,15 +3,10 @@ context("Global env")
 
 test_that("Global env does not bother packages", {
 
-  skip("Need a better way to run this")
-  
-  cmd <- '
+  evalq(set_config(key3 = "value"), .GlobalEnv)
+  on.exit(try(evalq(set_config(key3 = NULL), .GlobalEnv)), add = TRUE)
 
-  library(pkgconfig)
-  library(testthat)
-  library(disposables)
-
-  set_config(key3 = "value")
+  on.exit(try(disposables::dispose_packages(pkgs)), add = TRUE)
 
   pkgs <- disposables::make_packages(
     pkgA = {
@@ -27,12 +22,4 @@ test_that("Global env does not bother packages", {
 
   expect_equal(get_config("key3"), "value")
   expect_equal(pkgA::getter(), "value2")
-  '
-
-  tmp <- tempfile()
-  cat(cmd, file = tmp)
-  R <- file.path(R.home(), "bin", "R")
-
-  system(paste(R, "--no-save", "<", tmp))
-  
 })
