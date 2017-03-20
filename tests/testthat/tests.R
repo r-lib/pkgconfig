@@ -93,9 +93,9 @@ test_that("Cannot get if set by another package", {
 
 test_that("Setting from .onLoad works fine", {
 
-  on.exit(try(disposables::dispose_packages(pkgs)), add = TRUE)
-  on.exit(try(disposables::dispose_packages(pkgs2)), add = TRUE)
-  on.exit(try(unlink(lib_dir, recursive = TRUE)), add = TRUE)
+  on.exit(try(disposables::dispose_packages(pkgs)), silent = TRUE,  add = TRUE)
+  on.exit(try(disposables::dispose_packages(pkgs2), silent = TRUE), add = TRUE)
+  on.exit(try(unlink(lib_dir, recursive = TRUE), silent = TRUE), add = TRUE)
 
   dir.create(lib_dir <- tempfile())
   lp <- .libPaths()
