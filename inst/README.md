@@ -5,7 +5,7 @@
 [![Windows Build status](https://ci.appveyor.com/api/projects/status/github/gaborcsardi/pkgconfig?svg=true)](https://ci.appveyor.com/project/gaborcsardi/pkgconfig)
 [![](http://www.r-pkg.org/badges/version/pkgconfig)](http://www.r-pkg.org/pkg/pkgconfig)
 [![](http://cranlogs.r-pkg.org/badges/pkgconfig)](http://www.r-pkg.org/pkg/pkgconfig)
-[![Coverage Status](https://img.shields.io/codecov/c/github/MangoTheCat/pkgconfig/master.svg)](https://codecov.io/github/MangoTheCat/pkgconfig?branch=master)
+[![Coverage Status](https://img.shields.io/codecov/c/github/gaborcsardi/pkgconfig/master.svg)](https://codecov.io/github/gaborcsardi/pkgconfig?branch=master)
 
 Easy way to create configuration parameters in your R package. Configuration
 values set in different packages are independent.
