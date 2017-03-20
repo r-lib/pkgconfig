@@ -12,7 +12,7 @@ Imports:
     utils
 Suggests:
     testthat,
-    disposables
+    disposables (>= 1.0.3)
 URL: https://github.com/gaborcsardi/pkgconfig
 BugReports: https://github.com/gaborcsardi/pkgconfig/issues
 Encoding: UTF-8
