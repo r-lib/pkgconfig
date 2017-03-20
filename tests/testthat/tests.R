@@ -96,6 +96,7 @@ test_that("Setting from .onLoad works fine", {
   on.exit(try(disposables::dispose_packages(pkgs)), add = TRUE)
 
   pkgs <- disposables::make_packages(
+    quiet = FALSE,
     utility = {
       getter <- function() { pkgconfig::get_config("key", "fallback") }
     },

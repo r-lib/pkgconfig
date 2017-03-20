@@ -1,5 +1,5 @@
 ^\.travis\.yml$
 ^tags$
 ^appveyor.yml$
-^README.md$
+^README.markdown$
 ^Makefile$
