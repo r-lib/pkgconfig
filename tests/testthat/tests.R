@@ -93,24 +93,13 @@ test_that("Cannot get if set by another package", {
 
 test_that("Setting from .onLoad works fine", {
 
-  on.exit(try(disposables::dispose_packages(pkgs)), silent = TRUE,  add = TRUE)
-  on.exit(try(disposables::dispose_packages(pkgs2), silent = TRUE), add = TRUE)
-  on.exit(try(unlink(lib_dir, recursive = TRUE), silent = TRUE), add = TRUE)
-
-  dir.create(lib_dir <- tempfile())
-  lp <- .libPaths()
-  .libPaths(c(lib_dir, lp))
-  on.exit(.libPaths(lp), add = TRUE)
+  on.exit(try(disposables::dispose_packages(pkgs)), add = TRUE)
 
   pkgs <- disposables::make_packages(
-    lib_dir = lib_dir,
     utility = {
       getter <- function() { pkgconfig::get_config("key", "fallback") }
-    }
-  )
+    },
 
-  pkgs2 <- disposables::make_packages(
-    lib_dir = lib_dir,
     pkgA = {
       .onLoad <- function(lib, pkg) { pkgconfig::set_config(key = "A") }
       getter <- function() { utility::getter() }
