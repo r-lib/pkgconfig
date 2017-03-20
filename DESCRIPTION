@@ -1,8 +1,8 @@
 Package: pkgconfig
 Title: Private Configuration for 'R' Packages
-Version: 2.0.0
-Author: Gabor Csardi
-Maintainer: Gabor Csardi <csardi.gabor@gmail.com>
+Version: 2.0.1
+Author: Gábor Csárdi
+Maintainer: Gábor Csárdi <csardi.gabor@gmail.com>
 Description: Set configuration options on a per-package basis.
     Options set by a given package only apply to that package,
     other packages are unaffected.
@@ -15,3 +15,4 @@ Suggests:
     disposables
 URL: https://github.com/gaborcsardi/pkgconfig
 BugReports: https://github.com/gaborcsardi/pkgconfig/issues
+Encoding: UTF-8
