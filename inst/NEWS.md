@@ -1,4 +1,8 @@
 
+# 2.0.1
+
+No changes in functionality, only internal cleanup.
+
 # 2.0.0
 
 * Can also be used from the global environment, not only from packages.
