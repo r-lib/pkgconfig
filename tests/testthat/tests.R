@@ -52,15 +52,15 @@ test_that("Two packages do not interfere", {
 
     pkgA = {
       setter <- function() { pkgconfig::set_config(key = "A") }
-      getter <- function() { utility::getter() }
+      getter <- function() { utility123456::getter() }
     },
 
     pkgB = {
       setter <- function() { pkgconfig::set_config(key = "B") }
-      getter <- function() { utility::getter() }
+      getter <- function() { utility123456::getter() }
     },
 
-    utility = {
+    utility123456 = {
       getter <- function() { pkgconfig::get_config("key") }
     }
   )
@@ -96,22 +96,22 @@ test_that("Setting from .onLoad works fine", {
   on.exit(try(disposables::dispose_packages(pkgs)), add = TRUE)
 
   pkgs <- disposables::make_packages(
-    utility = {
+    utility123456 = {
       getter <- function() { pkgconfig::get_config("key", "fallback") }
     },
 
     pkgA = {
       .onLoad <- function(lib, pkg) { pkgconfig::set_config(key = "A") }
-      getter <- function() { utility::getter() }
+      getter <- function() { utility123456::getter() }
     },
 
     pkgB = {
       .onLoad <- function(lib, pkg) { pkgconfig::set_config(key = "B") }
-      getter <- function() { utility::getter() }
+      getter <- function() { utility123456::getter() }
     },
 
     pkgC = {
-      getter <- function() { utility::getter() }
+      getter <- function() { utility123456::getter() }
     }
   )
 

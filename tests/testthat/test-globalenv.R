@@ -11,9 +11,9 @@ test_that("Global env does not bother packages", {
   pkgs <- disposables::make_packages(
     pkgA = {
       setter <- function() { set_config(key3 = "value2") }
-      getter <- function() { utility::getter() }
+      getter <- function() { utility123456::getter() }
     },
-    utility = {
+    utility123456 = {
       getter <- function() { get_config("key3", "fallback") }
     }
   )
