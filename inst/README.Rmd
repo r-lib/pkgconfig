@@ -15,10 +15,8 @@ Call `get_config()` to query it.
 
 ## Installation
 
-Use the `devtools` package:
-
 ```r
-devtools::install_github("r-lib/pkgconfig")
+install.packages("pkgconfig")
 ```
 
 ## Typical usage
