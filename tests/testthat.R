@@ -1,6 +1,7 @@
 
 if (require(testthat, quietly = TRUE) &&
-    require(disposables, quietly = TRUE)) {
+    require(disposables, quietly = TRUE) &&
+    Sys.getenv("NOT_CRAN") == "true") {
   library(pkgconfig)
   test_check("pkgconfig")
 
