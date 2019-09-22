@@ -3,3 +3,7 @@
 ^appveyor.yml$
 ^README.markdown$
 ^Makefile$
+^.*\.Rproj$
+^\.Rproj\.user$
+^\.Rprofile$
+^r-packages$
