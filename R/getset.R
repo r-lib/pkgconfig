@@ -81,7 +81,7 @@ check_named_args <- function(...) {
 
 #' Set a configuration parameter for a package
 #'
-#' This is a more flexible variant of \code{link{set_config}},
+#' This is a more flexible variant of \code{\link{set_config}},
 #' and it allows creating an custom API in the package that
 #' uses \code{pkgconfig} for its configuration.
 #'
