@@ -1,4 +1,3 @@
-
 #' Persistent configuration for R packages
 #'
 #' This package is meant to be used in other packages, and provides
@@ -8,6 +7,9 @@
 #' for setting configuration options (\code{\link{set_config}}), and one
 #' for querying them (\code{\link{get_config}}).
 #'
-#' @docType package
-#' @name pkgconfig-package
+#' @keywords internal
+"_PACKAGE"
+
+## usethis namespace: start
+## usethis namespace: end
 NULL

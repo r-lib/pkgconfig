@@ -2,6 +2,7 @@
 % Please edit documentation in R/pkgconfig-package.R
 \docType{package}
 \name{pkgconfig-package}
+\alias{pkgconfig}
 \alias{pkgconfig-package}
 \title{Persistent configuration for R packages}
 \description{
@@ -13,3 +14,16 @@ It is currently very minimal, and has two main functions: one
 for setting configuration options (\code{\link{set_config}}), and one
 for querying them (\code{\link{get_config}}).
 }
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/r-lib/pkgconfig#readme}
+  \item Report bugs at \url{https://github.com/r-lib/pkgconfig/issues}
+}
+
+}
+\author{
+\strong{Maintainer}: Gábor Csárdi \email{csardi.gabor@gmail.com}
+
+}
+\keyword{internal}
