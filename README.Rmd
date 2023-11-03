@@ -1,11 +1,11 @@
 
 # Private configuration for R packages
 
-[![Linux Build Status](https://travis-ci.org/r-lib/pkgconfig.svg?branch=master)](https://travis-ci.org/r-lib/pkgconfig)
+[![Linux Build Status](https://travis-ci.org/r-lib/pkgconfig.svg?branch=main)](https://travis-ci.org/r-lib/pkgconfig)
 [![Windows Build status](https://ci.appveyor.com/api/projects/status/github/r-lib/pkgconfig?svg=true)](https://ci.appveyor.com/project/gaborcsardi/pkgconfig)
 [![](http://www.r-pkg.org/badges/version/pkgconfig)](http://www.r-pkg.org/pkg/pkgconfig)
 [![](http://cranlogs.r-pkg.org/badges/pkgconfig)](http://www.r-pkg.org/pkg/pkgconfig)
-[![Coverage Status](https://img.shields.io/codecov/c/github/r-lib/pkgconfig/master.svg)](https://codecov.io/github/r-lib/pkgconfig?branch=master)
+[![Coverage Status](https://img.shields.io/codecov/c/github/r-lib/pkgconfig/main.svg)](https://codecov.io/github/r-lib/pkgconfig?branch=main)
 
 Easy way to create configuration parameters in your R package. Configuration
 values set in different packages are independent.
