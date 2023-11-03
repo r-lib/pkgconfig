@@ -16,8 +16,16 @@ Call `get_config()` to query it.
 
 ## Installation
 
+Stable version:
+
 ```r
 install.packages("pkgconfig")
+```
+
+Development version:
+
+```r
+pak::pak("r-lib/pkgconfig")
 ```
 
 ## Typical usage
