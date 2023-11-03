@@ -7,3 +7,5 @@
 ^\.Rproj\.user$
 ^\.Rprofile$
 ^r-packages$
+^\.github$
+^codecov\.yml$
