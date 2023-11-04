@@ -3,8 +3,8 @@
 
 <!-- badges: start -->
 [![R-CMD-check](https://github.com/r-lib/pkgconfig/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/r-lib/pkgconfig/actions/workflows/R-CMD-check.yaml)
-[![](http://www.r-pkg.org/badges/version/pkgconfig)](http://www.r-pkg.org/pkg/pkgconfig)
-[![](http://cranlogs.r-pkg.org/badges/pkgconfig)](http://www.r-pkg.org/pkg/pkgconfig)
+[![](https://www.r-pkg.org/badges/version/pkgconfig)](https://www.r-pkg.org/pkg/pkgconfig)
+[![](https://cranlogs.r-pkg.org/badges/pkgconfig)](https://www.r-pkg.org/pkg/pkgconfig)
 [![Codecov test coverage](https://codecov.io/gh/r-lib/pkgconfig/branch/main/graph/badge.svg)](https://app.codecov.io/gh/r-lib/pkgconfig?branch=main)
 <!-- badges: end -->
 
